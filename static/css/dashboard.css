@@ -1,0 +1,118 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#FFE5EC,#FFF1E6,#E0FBFC);
+    min-height:100vh;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:32px;
+    font-weight:800;
+    background:linear-gradient(90deg,#FF006E,#8338EC,#3A86FF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logout{
+    background:linear-gradient(135deg,#FF006E,#FB5607);
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    font-size:22px;
+    font-weight:bold;
+    color:#8338EC;
+}
+
+.filter{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.filter select,
+.filter input{
+    padding:10px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+.filter button{
+    background:linear-gradient(135deg,#8338EC,#3A86FF);
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+th{
+    background:linear-gradient(135deg,#FF006E,#8338EC);
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#FFF5FA;
+}
+
+select[name="status"]{
+    padding:8px;
+    border-radius:8px;
+}
+
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .filter{
+        flex-direction:column;
+    }
+
+}

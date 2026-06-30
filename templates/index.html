@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSM Party Planner – Decor • Stalls • Entertainment • Memories</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- FLOATING PARTY CANVAS -->
+<div class="party-canvas" id="partyCanvas"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo-wrap">
+    <div class="logo-main">SSM Party Planner</div>
+    <div class="logo-sub">Decor • Stalls • Entertainment • Memories</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#photobooth">📸 Photo Booth</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-book" href="tel:+919962665500">📞 Call Now 9962665500</a>
+  <a class="nav-book" href="#contact">🎉 Book Now</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="toggleMenu()">✕</button>
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#packages" onclick="toggleMenu()">Packages</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div><div class="shape s2"></div>
+    <div class="shape s3"></div><div class="shape s4"></div>
+  </div>
+  <div class="hero-props">
+    <span class="prop">🎈</span>
+    <span class="prop">🎂</span>
+    <span class="prop">🎊</span>
+    <span class="prop">🥳</span>
+    <span class="prop">✨</span>
+    <span class="prop">🎁</span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">🎉 Tamil Nadu's #1 Party Planner</div>
+    <h1 class="hero-title">
+      <span class="line1">Turning Moments</span>
+      <span class="hero-script">into beautiful</span>
+      <span class="line2">Memories!</span>
+    </h1>
+    <p class="hero-desc">From birthday blasts to dream weddings — we bring the magic with premium decorations, live stalls, entertainment & photography. All in ONE place! 🎪</p>
+    <div class="hero-ctas">
+      <a class="btn-party btn-main" href="#packages">🎀 Explore Packages</a>
+      <a class="btn-party btn-sec" href="#contact">💬 Get Free Quote</a>
+    </div>
+    <div class="hero-emojis">
+      <span>🎈</span><span>🎂</span><span>🎊</span><span>🎁</span><span>🥂</span>
+    </div>
+    <div class="hero-scroll-hint">↓ &nbsp; scroll to explore &nbsp; ↓</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span class="marquee-item">🎈 Balloon Decoration</span>
+    <span class="marquee-item">🎂 Birthday Party</span>
+    <span class="marquee-item">💒 Wedding Decor</span>
+    <span class="marquee-item">✨ Grand Entry</span>
+    <span class="marquee-item">🍫 Chocolate Fountain</span>
+    <span class="marquee-item">🎭 Entertainment</span>
+    <span class="marquee-item">📸 Photography</span>
+    <span class="marquee-item">🎊 Confetti Blast</span>
+    <span class="marquee-item">🌸 Floral Decor</span>
+    <span class="marquee-item">🥳 Theme Setups</span>
+    <span class="marquee-item">🎈 Balloon Decoration</span>
+    <span class="marquee-item">🎂 Birthday Party</span>
+    <span class="marquee-item">💒 Wedding Decor</span>
+    <span class="marquee-item">✨ Grand Entry</span>
+    <span class="marquee-item">🍫 Chocolate Fountain</span>
+    <span class="marquee-item">🎭 Entertainment</span>
+    <span class="marquee-item">📸 Photography</span>
+    <span class="marquee-item">🎊 Confetti Blast</span>
+    <span class="marquee-item">🌸 Floral Decor</span>
+    <span class="marquee-item">🥳 Theme Setups</span>
+  </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+ <!--
+<section class="section" id="why">
+  <div style="text-align:center" class="reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--pink)"></span> Why Choose Us <span class="dot" style="background:var(--pink)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">7 Reasons We're the Best! 🏆</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal d1"><span class="why-emoji">🎪</span><h3>Complete Solutions</h3><p>Everything under one roof for your event</p></div>
+    <div class="why-card reveal d2"><span class="why-emoji">🎨</span><h3>Creative Themes</h3><p>Unique custom setups for every occasion</p></div>
+    <div class="why-card reveal d3"><span class="why-emoji">🍹</span><h3>15+ Live Stalls</h3><p>Food, drinks & fun stall options</p></div>
+    <div class="why-card reveal d1"><span class="why-emoji">📸</span><h3>Pro Photography</h3><p>Candid, drone & cinematic shoots</p></div>
+    <div class="why-card reveal d2"><span class="why-emoji">📦</span><h3>Custom Packages</h3><p>Flexible for every budget & event</p></div>
+    <div class="why-card reveal d3"><span class="why-emoji">⏰</span><h3>On-Time Setup</h3><p>Punctual professional crew always</p></div>
+    <div class="why-card reveal d4"><span class="why-emoji">💎</span><h3>Affordable Luxury</h3><p>Grand results, budget-friendly price</p></div>
+  </div>
+</section>
+-->
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-img-box">
+        <div class="about-img-big-emoji">🎊</div>
+        <div class="about-img-label">Add Your Best Event Photo Here!</div>
+      </div>
+      <span class="about-deco d1">🎈</span>
+      <span class="about-deco d2">🎂</span>
+      <span class="about-deco d3">✨</span>
+      <span class="about-deco d4">🎁</span>
+      <div class="about-stat-strip">
+        <div class="astat"><div class="astat-n">500+</div><div class="astat-l">Events Done</div></div>
+      </div>
+    </div>
+    <div class="about-text-side reveal d2">
+      <div class="sec-label"><span class="dot" style="background:var(--orange)"></span> Our Story</div>
+      <h2 class="sec-title">We Make Every <span class="highlight" style="background:linear-gradient(135deg,var(--pink),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Celebration</span><br>Unforgettable! 🎉</h2>
+      <div class="about-script">Creating magic since day one</div>
+      <p class="about-p">SSM Party Planner specializes in creating memorable celebrations with elegant decorations, entertainment setups, food stalls, photography, and customized event experiences across Tamil Nadu.</p>
+      <p class="about-p">We serve <strong style="color:var(--pink)">weddings, birthdays, engagements, baby showers, corporate events, naming ceremonies</strong> and every kind of celebration you can dream of!</p>
+      <div class="about-chips">
+        <span class="chip">🎈 Balloon Decor</span>
+        <span class="chip">💒 Weddings</span>
+        <span class="chip">🎂 Birthdays</span>
+        <span class="chip">📸 Photography</span>
+        <span class="chip">🎭 Entertainment</span>
+        <span class="chip">🍹 Live Stalls</span>
+      </div>
+      <a class="btn-party btn-main" href="#contact">🎀 Plan My Event Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BRING — PROPS -->
+<section class="section" id="props" style="background:linear-gradient(135deg,#FFF8E8,#F8F0FF)">
+  <div class="props-hdr reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--yellow)"></span> Everything We Bring <span class="dot" style="background:var(--yellow)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--orange),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Party Props &amp; Elements 🎠</h2>
+    <p style="color:#999;font-size:.88rem;margin-top:.5rem;font-weight:600">Everything you need for the perfect celebration!</p>
+  </div>
+  <div class="props-grid">
+    <div class="prop-card reveal d1"><span class="prop-card-emoji">🎈</span><h3>Balloons</h3><p>Theme, foil & balloon arches</p></div>
+    <div class="prop-card reveal d2"><span class="prop-card-emoji">🎂</span><h3>Cake Setup</h3><p>Cake table & dessert decor</p></div>
+    <div class="prop-card reveal d3"><span class="prop-card-emoji">🌸</span><h3>Florals</h3><p>Fresh & artificial floral arrangements</p></div>
+    <div class="prop-card reveal d4"><span class="prop-card-emoji">🎊</span><h3>Confetti</h3><p>Confetti poppers & cannons</p></div>
+    <div class="prop-card reveal d1"><span class="prop-card-emoji">🕯️</span><h3>Candles</h3><p>LED & pillar candle decor</p></div>
+    <div class="prop-card reveal d2"><span class="prop-card-emoji">🪅</span><h3>Props Booth</h3><p>Photo props & fun accessories</p></div>
+    <div class="prop-card reveal d3"><span class="prop-card-emoji">🎆</span><h3>Pyro Effects</h3><p>Cold pyro, fog & LED sparks</p></div>
+    <div class="prop-card reveal d4"><span class="prop-card-emoji">🎁</span><h3>Gift Table</h3><p>Styled gift & favor displays</p></div>
+    <div class="prop-card reveal d1"><span class="prop-card-emoji">💡</span><h3>Fairy Lights</h3><p>String lights & LED curtains</p></div>
+    <div class="prop-card reveal d2"><span class="prop-card-emoji">🎤</span><h3>Anchor & DJ</h3><p>Music, DJ & anchor services</p></div>
+    <div class="prop-card reveal d3"><span class="prop-card-emoji">🍫</span><h3>Choc Fountain</h3><p>Chocolate & candy counters</p></div>
+    <div class="prop-card reveal d4"><span class="prop-card-emoji">📸</span><h3>Photo Booth</h3><p>Instant photo booth setup</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="services-hdr reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--purple)"></span> All Our Services <span class="dot" style="background:var(--purple)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">5 Categories of Party Magic ✨</h2>
+  </div>
+  <div class="tab-bar reveal">
+    <button class="svc-tab on t0" onclick="switchSvc(0,this)">🎀 Decoration</button>
+    <button class="svc-tab t1" onclick="switchSvc(1,this)">✨ Grand Entry</button>
+    <button class="svc-tab t2" onclick="switchSvc(2,this)">🍹 Food Stalls</button>
+    <button class="svc-tab t3" onclick="switchSvc(3,this)">🎭 Entertainment</button>
+    <button class="svc-tab t4" onclick="switchSvc(4,this)">📸 Photography</button>
+  </div>
+  <div id="sp0" class="svc-panel show t0 reveal">
+    <div class="svc-item"><div class="svc-dot"></div><span>Birthday Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Wedding Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Engagement Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Baby Shower Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Naming Ceremony Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Housewarming Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Surprise Decorations</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Theme Balloon Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Stage & Backdrop Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Floral Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Entrance Decoration</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Couple Stage Decoration</span></div>
+  </div>
+  <div id="sp1" class="svc-panel t1">
+    <div class="svc-item"><div class="svc-dot"></div><span>Bride & Groom Entry</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Car Entry Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Piro / Cold Pyro Effects</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Fog Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>LED Spark Effects</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Dancing Floor Smoke</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Confetti Blast</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Flower Shower Entry</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Grand Welcome Setup</span></div>
+  </div>
+  <div id="sp2" class="svc-panel t2">
+    <div class="svc-item"><div class="svc-dot"></div><span>Welcome Drinks Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Beeda Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Popcorn Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Sweet Candy Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Fruit Salad Counter</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Panipuri Live Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Chocolate Fountain</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Ice Cream Counter</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Mocktail Bar Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Juice Counter</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Live Snack Counters</span></div>
+  </div>
+  <div id="sp3" class="svc-panel t3">
+    <div class="svc-item"><div class="svc-dot"></div><span>Mehandi Artist Booking</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Bridal Assistance</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Kids Entertainment</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Tattoo Stall</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Magic Show</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>DJ & Music Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Dance Floor Setup</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Anchor Services</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Fun Activities & Games</span></div>
+  </div>
+  <div id="sp4" class="svc-panel t4">
+    <div class="svc-item"><div class="svc-dot"></div><span>Studio Photoshoot</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Couple Photoshoot</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Pre-Wedding Shoot</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Event Photography</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Candid Photography</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Drone Shoot</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Instant Photo Booth</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Cinematic Video Shoot</span></div>
+    <div class="svc-item"><div class="svc-dot"></div><span>Traditional Photography</span></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section" id="packages">
+  <div class="pkg-hdr reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--blue)"></span> Pricing & Plans <span class="dot" style="background:var(--blue)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Pick Your Perfect Package 🎁</h2>
+    <p style="color:#999;font-size:.88rem;margin-top:.5rem;font-weight:600">All packages can be fully customized to your dream event!</p>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg-card pk1 reveal d1">
+      <span class="pkg-emoji">🌸</span>
+      <div class="pkg-name">Basic</div>
+      <div class="pkg-tagline">A Sweet Beginning</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-feats">
+        <li>Balloon Decoration</li>
+        <li>Basic Backdrop Setup</li>
+        <li>Welcome Setup</li>
+      </ul>
+      <a class="pkg-btn" href="#contact">Book Now 🎉</a>
+    </div>
+    <div class="pkg-card pk2 reveal d2">
+      <div class="pkg-popular">⭐ Most Popular</div>
+      <span class="pkg-emoji">✨</span>
+      <div class="pkg-name">Premium</div>
+      <div class="pkg-tagline">The Full Celebration</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-feats">
+        <li>Stage Decoration</li>
+        <li>Lighting Setup</li>
+        <li>Entrance Decoration</li>
+        <li>Photography Support</li>
+      </ul>
+      <a class="pkg-btn" href="#contact">Book Now 🎊</a>
+    </div>
+    <div class="pkg-card pk3 reveal d3">
+      <span class="pkg-emoji">👑</span>
+      <div class="pkg-name">Luxury</div>
+      <div class="pkg-tagline">Grand in Every Way</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-feats">
+        <li>Full Event Setup</li>
+        <li>Premium Stage Decoration</li>
+        <li>Piro Entry & Fog Effects</li>
+        <li>Live Food Stalls</li>
+        <li>Entertainment Activities</li>
+        <li>Photography & Videography</li>
+        <li>Customized Theme</li>
+      </ul>
+      <a class="pkg-btn" href="#contact">Book Now 👑</a>
+    </div>
+  </div>
+  <p class="pkg-note">✨ All packages are fully customizable · Contact us for your dream event quote!</p>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="gallery-hdr reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--green)"></span> Our Work <span class="dot" style="background:var(--green)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--green),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Events We've Made Magical 🪄</h2>
+    <p style="color:#999;font-size:.85rem;margin-top:.5rem;font-weight:600">Replace with your own gorgeous event photos!</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="g-cell big">🎊<div class="g-lbl">Wedding Stage</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">🎈<div class="g-lbl">Balloons</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">🎂<div class="g-lbl">Cake Setup</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">✨<div class="g-lbl">Grand Entry</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">🍫<div class="g-lbl">Food Stalls</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">📸<div class="g-lbl">Photography</div><div class="g-hover-overlay">🔍</div></div>
+    <div class="g-cell">🥳<div class="g-lbl">Birthday</div><div class="g-hover-overlay">🔍</div></div>
+  </div>
+  <div class="gallery-cta reveal">
+    <a class="btn-party btn-sec" href="https://instagram.com/ssmpartyplanner" target="_blank">📸 See More on Instagram</a>
+  </div>
+</section>
+
+<!-- PHOTO BOOTH -->
+<section class="section" id="photobooth">
+
+    <div class="gallery-hdr reveal">
+
+        <div class="sec-label" style="justify-content:center">
+            <span class="dot" style="background:var(--purple)"></span>
+            AI PHOTO BOOTH
+            <span class="dot" style="background:var(--pink)"></span>
+        </div>
+
+        <h2 class="sec-title"
+            style="background:linear-gradient(135deg,var(--purple),var(--blue));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;">
+            Instant Photo Booth & QR Sharing
+        </h2>
+
+        <p style="color:#999;font-size:.9rem;">
+            Get your printed photo instantly and download the digital copy by scanning the QR Code.
+        </p>
+
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="why-emoji">📸</div>
+            <h3>Instant Photography</h3>
+            <p>Professional DSLR photography with instant prints.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-emoji">🖨️</div>
+            <h3>Instant Printing</h3>
+            <p>Take your printed photo home within seconds.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-emoji">📱</div>
+            <h3>QR Code Download</h3>
+            <p>Scan the QR Code to download your digital copy.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-emoji">🤖</div>
+            <h3>AI Face Search</h3>
+            <p>Coming Soon – Upload your selfie and AI finds your photos.</p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+        <a href="#contact" class="btn-party btn-main">
+            📅 Book Photo Booth
+        </a>
+    </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="test-hdr reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--red)"></span> Happy Clients <span class="dot" style="background:var(--red)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">What They're Saying 💬</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal d1">
+      <div class="test-big-q">"</div>
+      <p class="test-text">Very neat decoration and on-time setup! Everything was exactly how we dreamed it. Highly recommended to everyone!</p>
+      <div class="test-stars">⭐⭐⭐⭐⭐</div>
+      <div class="test-footer">
+        <div class="test-av">🥰</div>
+        <div><div class="test-name">Ananya & Karthik</div><div class="test-event">Wedding · Chennai</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal d2">
+      <div class="test-big-q">"</div>
+      <p class="test-text">Creative work and excellent coordination throughout the event. Professional, attentive and so talented!</p>
+      <div class="test-stars">⭐⭐⭐⭐⭐</div>
+      <div class="test-footer">
+        <div class="test-av">🎂</div>
+        <div><div class="test-name">Ramesh Family</div><div class="test-event">Birthday Party · Coimbatore</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal d3">
+      <div class="test-big-q">"</div>
+      <p class="test-text">Loved the food stalls and grand entry! They made our wedding day truly unforgettable. Worth every penny! 🎊</p>
+      <div class="test-stars">⭐⭐⭐⭐⭐</div>
+      <div class="test-footer">
+        <div class="test-av">💍</div>
+        <div><div class="test-name">Priya & Suresh</div><div class="test-event">Wedding · Madurai</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div style="text-align:center;margin-bottom:3rem" class="reveal">
+    <div class="sec-label" style="justify-content:center"><span class="dot" style="background:var(--pink)"></span> Let's Talk! <span class="dot" style="background:var(--pink)"></span></div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Ready to Plan Your Dream Event? 🥳</h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="contact-emojis">🎈🎂🎊🎁✨</div>
+      <p style="font-size:.9rem;color:#777;line-height:1.85;font-weight:600;margin-bottom:1.5rem">Let's turn your celebration into something truly magical! Reach out on any platform — we respond fast 💬</p>
+      <div class="cinfo-cards">
+        <div class="cinfo-card ci1"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Phone / WhatsApp</div><div class="cinfo-val"><a href="tel:+919962665500">+91 9962665500</a></div></div></div>
+        <div class="cinfo-card ci2"><div class="cinfo-icon">📸</div><div><div class="cinfo-label">Instagram</div><div class="cinfo-val"><a href="https://instagram.com/ssmpartyplanner" target="_blank">@ssmpartyplanner</a></div></div></div>
+        <div class="cinfo-card ci3"><div class="cinfo-icon">✉️</div><div><div class="cinfo-label">Email</div><div class="cinfo-val"><a href="mailto:ssmpartyplannerinfo@gmail.com">ssmpartyplannerinfo@gmail.com</a></div></div></div>
+        <div class="cinfo-card ci4"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Service Area</div><div class="cinfo-val">Tamil Nadu & Nearby Locations</div></div></div>
+      </div>
+    </div>
+    <div class="contact-right reveal d2">
+      <div class="form-card">
+        <div class="form-title">Send an Enquiry 🎉</div>
+        <div class="form-subtitle">We'll reply within 24 hours!</div>python
+        <form action="/booking" method="POST">
+        <div class="f-row">
+          <div class="f-group"><label>Your Name</label><input type="text" placeholder="Your full name" type="text"
+                   name="name" required/></div>
+          <div class="f-group"><label>Phone / WhatsApp</label><input  type="tel"
+                   name="phone" placeholder="+91 XXXXX XXXXX" required/></div>
+        </div>
+        <div class="f-group"><label>Event Type</label>
+          <select name="event_type" required><option value="">🎉 Select event type</option><option>💒 Wedding</option><option>🎂 Birthday Party</option><option>💍 Engagement</option><option>👶 Baby Shower</option><option>🌸 Naming Ceremony</option><option>🏠 Housewarming</option><option>💼 Corporate Event</option><option>🎊 Other</option></select>
+        </div>
+        <div class="f-group"><label>Package</label>
+          <select name="package_name" required><option value="">🎁 Select package</option><option>🌸 Basic Package</option><option>✨ Premium Package</option><option>👑 Luxury Package</option><option>🌈 Custom Package</option></select>
+        </div>
+        <div class="f-group"><label>Event Date</label><input type="date"
+               name="event_date"
+               required/></div>
+        <div class="f-group"><label>Message</label><textarea name="message" placeholder="Tell us about your dream event! 🎊"></textarea></div>
+        <button class="f-submit"  type="submit">🎉 Send My Enquiry! 🎊</button>
+        </form>
+        <p class="f-note">💛 We'll WhatsApp or call you within 24 hours!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">SSM Party Planner</div>
+      <div class="footer-tagline">"Every Event Deserves Magic ✨"</div>
+      <p class="footer-desc">Tamil Nadu's premier party planner — bringing joy, colour and unforgettable memories to every celebration since day one! 🎊</p>
+      <div class="social-strip" style="margin-top:1.5rem">
+        <a class="soc-btn" href="https://wa.me/919962665500" target="_blank" title="WhatsApp">💬</a>
+        <a class="soc-btn" href="https://instagram.com/ssmpartyplanner" target="_blank" title="Instagram">📸</a>
+        <a class="soc-btn" href="mailto:ssmpartyplannerinfo@gmail.com" title="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>🎪 Services</h4>
+      <a href="#services">🎈 Event Decoration</a>
+      <a href="#services">✨ Grand Entry</a>
+      <a href="#services">🍹 Food Stalls</a>
+      <a href="#services">🎭 Entertainment</a>
+      <a href="#services">📸 Photography</a>
+    </div>
+    <div class="footer-col">
+      <h4>🔗 Quick Links</h4>
+      <a href="#home">🏠 Home</a>
+      <a href="#about">💛 About Us</a>
+      <a href="#packages">🎁 Packages</a>
+      <a href="#gallery">🖼️ Gallery</a>
+      <a href="#testimonials">💬 Reviews</a>
+      <a href="#contact">📞 Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 SSM Party Planner · All rights reserved · Tamil Nadu, India</div>
+    <div class="footer-hearts">Made with 💖 for magical celebrations</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- BOOKING CONFIRMATION POPUP (kept at body level, not nested in any card) -->
+<div class="booking-modal-overlay" id="bookingModalOverlay">
+  <div class="booking-modal">
+    <button class="booking-modal-close" onclick="closeBookingModal()">✕</button>
+    <div class="booking-modal-emoji">🎊</div>
+    <h3 class="booking-modal-title">Yay! Booking Received!</h3>
+    <p class="booking-modal-text">We've got your enquiry and we're already getting excited! Our team will WhatsApp or call you within 24 hours to start planning your magical event. 🎈✨</p>
+    <button class="booking-modal-btn" onclick="closeBookingModal()">Awesome, Thanks! 🎉</button>
+  </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<a href="https://wa.me/919962665500"
+   class="whatsapp-btn"
+   target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+         alt="WhatsApp">
+</a>
+</body>
+</html>

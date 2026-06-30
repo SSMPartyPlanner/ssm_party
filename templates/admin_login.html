@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSM Admin Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="login-box">
+
+
+<div class="logo">🎉</div>
+
+<h2>SSM Party Planner</h2>
+
+<form method="POST" action="/admin/login">
+
+    <div class="input-group">
+        <input type="text"
+               name="username"
+               placeholder="Enter Username"
+               required>
+    </div>
+
+    <div class="input-group">
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+    </div>
+
+    <button type="submit" class="login-btn">
+        Login To Dashboard
+    </button>
+
+</form>
+
+<div class="footer">
+    Admin Access Only
+</div>
+
+
+</div>
+
+</body>
+</html>
