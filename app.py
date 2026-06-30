@@ -15,6 +15,12 @@ app.secret_key = "ssm_secret_key"
 
 
 def get_db_connection():
+
+    print("HOST =", os.getenv("MYSQLHOST"))
+    print("PORT =", os.getenv("MYSQLPORT"))
+    print("USER =", os.getenv("MYSQLUSER"))
+    print("DB =", os.getenv("MYSQLDATABASE"))
+
     conn = mysql.connector.connect(
         host=os.getenv("MYSQLHOST"),
         user=os.getenv("MYSQLUSER"),
@@ -22,6 +28,7 @@ def get_db_connection():
         database=os.getenv("MYSQLDATABASE"),
         port=int(os.getenv("MYSQLPORT"))
     )
+
     return conn
 
 
