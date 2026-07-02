@@ -32,17 +32,27 @@ def get_db_connection():
     return conn
 
 
-@app.route('/')
+@app.route("/")
 def home():
     try:
-        return render_template('index.html')
+        return render_template("index.html")
     except Exception as e:
         return str(e)
 
 
-@app.route('/admin')
+@app.route("/plan-event")
+def plan_event():
+    return render_template("plan_event.html")
+
+
+@app.route("/package-selection")
+def package_selection():
+    return render_template("package_selection.html")
+
+
+@app.route("/admin")
 def admin():
-    return render_template('admin_login.html')
+    return render_template("admin_login.html")
 
 
 # Admin Login Check

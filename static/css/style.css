@@ -483,3 +483,77 @@ footer::before{content:'🎊 🎈 🎉 🎂 🥂 🪄 🎊 🎈 🎉 🎂 🥂 �
 .whatsapp-btn:hover{
     transform:scale(1.1);
 }
+
+
+/* PLAN MY EVENT */
+
+.step-page{
+    display:none;
+}
+
+.step-page.active{
+    display:block;
+}
+
+.package-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    border:2px solid transparent;
+    transition:.3s;
+}
+
+.package-card:hover{
+    transform:translateY(-8px);
+    border-color:#ff5b8f;
+}
+
+.package-card h3{
+    color:#ff5b8f;
+    margin-bottom:10px;
+}
+
+.package-card h1{
+    margin-bottom:15px;
+}
+
+.package-card ul{
+    padding-left:18px;
+    margin-bottom:20px;
+}
+
+.package-card li{
+    margin-bottom:10px;
+}
+
+.check-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.check-item{
+    padding:15px;
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.check-item:hover{
+    background:#fff0f6;
+    border-color:#ff5b8f;
+}
+
+.btn-area{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+}
+
+.secondary{
+    background:#888;
+}

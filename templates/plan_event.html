@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Plan My Event | SSM Party Planner</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#fff7f3,#ffe7ef,#eef8ff);
+
+min-height:100vh;
+
+padding:40px;
+
+}
+
+.container{
+
+max-width:1100px;
+
+margin:auto;
+
+background:#fff;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+}
+
+.header{
+
+padding:45px;
+
+text-align:center;
+
+background:linear-gradient(135deg,#ff5b8f,#ff9f43);
+
+color:#fff;
+
+}
+
+.header h1{
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:8px;
+
+}
+
+.header p{
+
+font-size:18px;
+
+opacity:.95;
+
+}
+
+.progress{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+background:#fafafa;
+
+}
+
+.progress-line{
+
+height:4px;
+
+flex:1;
+
+background:#ddd;
+
+}
+
+.circle{
+
+width:48px;
+
+height:48px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#ddd;
+
+font-weight:bold;
+
+color:#666;
+
+z-index:2;
+
+}
+
+.circle.active{
+
+background:#ff5b8f;
+
+color:white;
+
+}
+
+.step-page{
+
+display:none;
+
+padding:45px;
+
+animation:fade .5s;
+
+}
+
+.step-page.active{
+
+display:block;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateX(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+h2{
+
+font-size:34px;
+
+margin-bottom:30px;
+
+color:#333;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:22px;
+
+}
+
+.input{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.input label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.input input,
+.input select,
+.input textarea{
+
+padding:16px;
+
+border:1px solid #ddd;
+
+border-radius:12px;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.input input:focus,
+.input select:focus,
+.input textarea:focus{
+
+border-color:#ff5b8f;
+
+box-shadow:0 0 10px rgba(255,91,143,.15);
+
+}
+
+textarea{
+
+height:130px;
+
+resize:none;
+
+}
+
+.full{
+
+grid-column:1/3;
+
+}
+
+.btn-area{
+
+margin-top:40px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+button{
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+font-size:17px;
+
+font-weight:700;
+
+background:linear-gradient(90deg,#ff5b8f,#ff9f43);
+
+color:white;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 25px rgba(0,0,0,.15);
+
+}
+
+.secondary{
+
+background:#ddd;
+
+color:#444;
+
+}
+
+@media(max-width:768px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.full{
+
+grid-column:1;
+
+}
+
+.progress{
+
+padding:25px;
+
+}
+
+.circle{
+
+width:38px;
+height:38px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>🎉 SSM Party Planner</h1>
+
+<p>Create Your Dream Event in Minutes</p>
+
+</div>
+
+<div class="progress">
+
+<div class="circle active" id="c1">1</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c2">2</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c3">3</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c4">4</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c5">5</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c6">6</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c7">7</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c8">8</div>
+<div class="progress-line"></div>
+
+<div class="circle" id="c9">9</div>
+
+</div>
+
+<form id="eventForm">
+
+<!-- STEP 1 STARTS HERE -->
+<div class="step-page active" id="step1">
+
+<h2>Customer Details</h2>
+
+<div class="grid">
+
+<div class="input">
+<label>Full Name</label>
+<input
+    type="text"
+    id="fullName"
+    placeholder="Enter Full Name">
+</div>
+
+<div class="input">
+<label>Mobile Number</label>
+<input
+    type="tel"
+    id="mobile">
+</div>
+
+<div class="input">
+<label>WhatsApp Number</label>
+<input
+    type="tel"
+    id="whatsapp">
+</div>
+
+<div class="input">
+<label>Email</label>
+<input
+    type="email"
+    id="email">
+</div>
+
+<div class="input">
+<label>City</label>
+<input
+    type="text"
+    id="city">
+</div>
+
+<div class="input">
+<label>Area</label>
+<input
+    type="text"
+    id="area">
+</div>
+
+<div class="input">
+<label>Event Date</label>
+<input
+    type="date"
+    id="eventDate">
+</div>
+
+<div class="input">
+<label>Event Time</label>
+<input type="time">
+</div>
+
+<div class="input">
+<label>No. of Guests</label>
+<input
+    type="number"
+    id="guests">
+</div>
+
+<div class="input">
+<label>Budget</label>
+<input type="number" placeholder="₹">
+</div>
+
+<div class="input full">
+<label>Venue Address</label>
+<textarea></textarea>
+</div>
+
+</div>
+
+<div class="btn-area">
+
+<div></div>
+
+<button type="button" onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ===========================
+STEP 2
+=========================== -->
+
+<div class="step-page" id="step2">
+
+<h2>🎉 Event Details</h2>
+
+<div class="grid">
+
+<div class="input">
+<label>Event Type</label>
+
+<select id="eventType">
+<option>Select Event</option>
+<option>Birthday</option>
+<option>Wedding</option>
+<option>Reception</option>
+<option>Engagement</option>
+<option>Baby Shower</option>
+<option>House Warming</option>
+<option>Corporate Event</option>
+<option>Anniversary</option>
+<option>Puberty Function</option>
+<option>Naming Ceremony</option>
+<option>Temple Function</option>
+<option>Other</option>
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Theme</label>
+
+<select>
+
+<option>Select Theme</option>
+
+<option>Royal</option>
+
+<option>Luxury</option>
+
+<option>Princess</option>
+
+<option>Boss Baby</option>
+
+<option>Frozen</option>
+
+<option>Jungle</option>
+
+<option>Marvel</option>
+
+<option>Traditional</option>
+
+<option>Minimal</option>
+
+<option>Custom Theme</option>
+
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Venue Type</label>
+
+<select>
+
+<option>Home</option>
+
+<option>Marriage Hall</option>
+
+<option>Hotel</option>
+
+<option>Resort</option>
+
+<option>Outdoor Garden</option>
+
+<option>Beach</option>
+
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Indoor / Outdoor</label>
+
+<select>
+
+<option>Indoor</option>
+
+<option>Outdoor</option>
+
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Expected Duration</label>
+
+<select>
+
+<option>2 Hours</option>
+
+<option>3 Hours</option>
+
+<option>4 Hours</option>
+
+<option>Half Day</option>
+
+<option>Full Day</option>
+
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Preferred Decoration Color</label>
+
+<select>
+
+<option>Pink</option>
+
+<option>Blue</option>
+
+<option>Gold</option>
+
+<option>White</option>
+
+<option>Purple</option>
+
+<option>Red</option>
+
+<option>Green</option>
+
+<option>Mixed Theme</option>
+
+</select>
+
+</div>
+
+<div class="input full">
+
+<label>Special Instructions</label>
+
+<textarea placeholder="Tell us your dream event..."></textarea>
+
+</div>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ===========================
+STEP 3
+=========================== -->
+
+<div class="step-page" id="step3">
+
+<h2>📦 Choose Your Package</h2>
+
+<div class="grid">
+
+<div class="package-card">
+
+<h3>🥈 Silver</h3>
+
+<h1>₹15,999</h1>
+
+<ul>
+
+<li>✔ Balloon Decoration</li>
+
+<li>✔ Welcome Board</li>
+
+<li>✔ Cake Table</li>
+
+<li>✔ Stage Setup</li>
+
+</ul>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Select Package
+
+</button>
+
+</div>
+
+<div class="package-card">
+
+<h3>🥇 Gold</h3>
+
+<h1>₹29,999</h1>
+
+<ul>
+
+<li>✔ Premium Decoration</li>
+
+<li>✔ Photography</li>
+
+<li>✔ LED Name Board</li>
+
+<li>✔ Return Gifts</li>
+
+</ul>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Select Package
+
+</button>
+
+</div>
+
+<div class="package-card">
+
+<h3>💎 Platinum</h3>
+
+<h1>₹49,999</h1>
+
+<ul>
+
+<li>✔ Stage Decoration</li>
+
+<li>✔ Photography</li>
+
+<li>✔ Videography</li>
+
+<li>✔ DJ</li>
+
+<li>✔ Smoke Entry</li>
+
+</ul>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Select Package
+
+</button>
+
+</div>
+
+<div class="package-card">
+
+<h3>👑 Luxury</h3>
+
+<h1>Custom Quote</h1>
+
+<ul>
+
+<li>✔ Everything Included</li>
+
+<li>✔ Customized Theme</li>
+
+<li>✔ Premium Decoration</li>
+
+<li>✔ Food Stalls</li>
+
+<li>✔ Entertainment</li>
+
+</ul>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Select Package
+
+</button>
+
+</div>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<div></div>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 4
+========================== -->
+
+<div class="step-page" id="step4">
+
+<h2>🎈 Decorations & Add-ons</h2>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Balloon Decoration">
+🎈 Balloon Decoration
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Flower Decoration">
+🌸 Flower Decoration
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Welcome Board">
+🪧 Welcome Board
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Entrance Arch">
+🚪 Entrance Arch
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="LED Name Board">
+💡 LED Name Board
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Selfie Booth">
+📸 Selfie Booth
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Cake Table">
+🎂 Cake Table
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Smoke Entry">
+🌫 Smoke Entry
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Cold Fire">
+🎆 Cold Fire
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="DJ Setup">
+🎧 DJ Setup
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Photo Booth">
+📷 Photo Booth
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Stage Decoration">
+🏵 Stage Decoration
+</label>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 5
+========================== -->
+
+<div class="step-page" id="step5">
+
+<h2>📸 Photography & Entertainment</h2>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Photography" data-price="8000">
+📷 Photography (₹8,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Videography" data-price="12000">
+🎥 Videography (₹12,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Drone Shoot" data-price="7000">
+🚁 Drone Shoot (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Streaming" data-price="5000">
+🎬 Live Streaming (₹5,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="DJ" data-price="10000">
+🎧 DJ Setup (₹10,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Anchor" data-price="6000">
+🎤 Professional Anchor (₹6,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Magic Show" data-price="7000">
+🎩 Magic Show (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Kids Games" data-price="5000">
+🎈 Kids Games (₹5,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Band" data-price="15000">
+🎺 Live Band (₹15,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Fireworks" data-price="9000">
+🎆 Fireworks (₹9,000)
+</label>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 6
+========================== -->
+
+<div class="step-page" id="step6">
+
+<h2>🍽 Catering & Food Stalls</h2>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Veg Buffet" data-price="350">
+🥗 Veg Buffet (₹350 per plate)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Non-Veg Buffet" data-price="550">
+🍗 Non-Veg Buffet (₹550 per plate)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Dosa Stall" data-price="8000">
+🥞 Live Dosa Stall (₹8,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Chaat Stall" data-price="7000">
+🥙 Chaat Stall (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Popcorn Stall" data-price="4000">
+🍿 Popcorn Stall (₹4,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Cotton Candy" data-price="3500">
+🍭 Cotton Candy (₹3,500)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Chocolate Fountain" data-price="6500">
+🍫 Chocolate Fountain (₹6,500)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Ice Cream Stall" data-price="7000">
+🍨 Ice Cream Stall (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Mocktail Stall" data-price="9000">
+🍹 Mocktail Stall (₹9,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Tea & Coffee Counter" data-price="3000">
+☕ Tea & Coffee Counter (₹3,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Fresh Juice Stall" data-price="6000">
+🥤 Fresh Juice Stall (₹6,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live BBQ" data-price="12000">
+🔥 Live BBQ Counter (₹12,000)
+</label>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 6
+========================== -->
+
+<div class="step-page" id="step6">
+
+<h2>🍽 Catering & Food Stalls</h2>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Veg Buffet" data-price="350">
+🥗 Veg Buffet (₹350 per plate)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Non-Veg Buffet" data-price="550">
+🍗 Non-Veg Buffet (₹550 per plate)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Dosa Stall" data-price="8000">
+🥞 Live Dosa Stall (₹8,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Chaat Stall" data-price="7000">
+🥙 Chaat Stall (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Popcorn Stall" data-price="4000">
+🍿 Popcorn Stall (₹4,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Cotton Candy" data-price="3500">
+🍭 Cotton Candy (₹3,500)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Chocolate Fountain" data-price="6500">
+🍫 Chocolate Fountain (₹6,500)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Ice Cream Stall" data-price="7000">
+🍨 Ice Cream Stall (₹7,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Mocktail Stall" data-price="9000">
+🍹 Mocktail Stall (₹9,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Tea & Coffee Counter" data-price="3000">
+☕ Tea & Coffee Counter (₹3,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Fresh Juice Stall" data-price="6000">
+🥤 Fresh Juice Stall (₹6,000)
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live BBQ" data-price="12000">
+🔥 Live BBQ Counter (₹12,000)
+</label>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 7
+========================== -->
+
+<div class="step-page" id="step7">
+
+<h2>🎭 Entertainment & Services</h2>
+
+<div class="grid">
+
+<div class="input full">
+<label>Entertainment Options</label>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="DJ" data-price="15000">
+🎧 DJ
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Band" data-price="35000">
+🎸 Live Band
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Dance Performance" data-price="20000">
+💃 Dance Performance
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Magic Show" data-price="12000">
+🪄 Magic Show
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Anchor / MC" data-price="10000">
+🎤 Anchor / MC
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Kids Play Area" data-price="8000">
+🎈 Kids Play Area
+</label>
+
+</div>
+</div>
+
+<div class="input full">
+<label>Photography & Videography</label>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Photography" data-price="15000">
+📸 Photography
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Videography" data-price="20000">
+🎥 Videography
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Drone Shoot" data-price="12000">
+🚁 Drone Shoot
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Live Streaming" data-price="10000">
+📡 Live Streaming
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Instant Photo Printing" data-price="8000">
+🖨 Instant Photo Printing
+</label>
+
+</div>
+</div>
+
+<div class="input">
+<label>Need Event Host?</label>
+
+<select>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div class="input">
+<label>Need Security?</label>
+
+<select>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div class="input">
+<label>Valet Parking</label>
+
+<select>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div class="input">
+<label>Cleaning Staff</label>
+
+<select>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+<div class="input full">
+<label>Special Requirements</label>
+
+<textarea placeholder="Any special entertainment or service requirements..."></textarea>
+
+</div>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 8
+========================== -->
+
+<div class="step-page" id="step8">
+  
+<h2>🏛 Venue & Event Setup</h2>
+
+<div class="grid">
+
+<div class="input">
+
+<label>Venue Type</label>
+
+<select>
+<option>Home</option>
+<option>Marriage Hall</option>
+<option>Hotel</option>
+<option>Resort</option>
+<option>Convention Hall</option>
+<option>Outdoor Garden</option>
+<option>Beach</option>
+<option>Farm House</option>
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Indoor / Outdoor</label>
+
+<select>
+<option>Indoor</option>
+<option>Outdoor</option>
+<option>Both</option>
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Need Stage?</label>
+
+<select>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div class="input">
+
+<label>Need Generator?</label>
+
+<select>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+</div>
+
+</div>
+
+<h3 style="margin-top:40px;">🪑 Furniture</h3>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="Plastic Chairs" data-price="20">
+🪑 Plastic Chairs
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Premium Chairs" data-price="50">
+💺 Premium Chairs
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Round Tables" data-price="500">
+⭕ Round Tables
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="VIP Sofa" data-price="2500">
+🛋 VIP Sofa
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Dining Tables" data-price="800">
+🍽 Dining Tables
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Stage Setup" data-price="8000">
+🎭 Stage Setup
+</label>
+
+</div>
+
+<h3 style="margin-top:40px;">💡 Lighting & Sound</h3>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input type="checkbox" value="LED Lights" data-price="3000">
+💡 LED Lights
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Fairy Lights" data-price="2500">
+✨ Fairy Lights
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Laser Lights" data-price="4500">
+🔦 Laser Lights
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="PA System" data-price="7000">
+🔊 PA Sound System
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="Wireless Mic" data-price="2000">
+🎤 Wireless Microphone
+</label>
+
+<label class="check-item">
+<input type="checkbox" value="LED Wall" data-price="15000">
+📺 LED Wall
+</label>
+
+</div>
+
+<div class="btn-area">
+
+<button
+type="button"
+class="secondary"
+onclick="previousStep()">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+onclick="nextStep()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- STEP 8 -->
+</div> <!-- END STEP 8 -->
+
+<!-- ==========================
+STEP 9
+========================== -->
+
+<div class="step-page" id="step9">
+
+<div class="package-card">
+
+<h2>📋 Booking Summary</h2>
+
+<div class="summary-card">
+
+        <h3>Customer Information</h3>
+
+        <p><strong>Name:</strong> <span id="sumName">-</span></p>
+        <p><strong>Mobile:</strong> <span id="sumMobile">-</span></p>
+        <p><strong>Event:</strong> <span id="sumEvent">-</span></p>
+        <p><strong>Date:</strong> <span id="sumDate">-</span></p>
+        <p><strong>Guests:</strong> <span id="sumGuests">-</span></p>
+
+        <hr>
+
+        <h3>Selected Package</h3>
+        <p id="sumPackage">No package selected</p>
+
+        <hr>
+
+        <h3>Estimated Cost</h3>
+
+        <h1 style="color:#ff5b8f;">
+            <span id="totalAmount">0</span>
+        </h1>
+
+    </div>
+
+    <div class="btn-area">
+
+        <button
+            type="button"
+            class="secondary"
+            onclick="previousStep()">
+            ← Previous
+        </button>
+
+        <button type="submit">
+            ✅ Confirm Booking
+        </button>
+
+    </div>
+
+</div>
+
+</form>
+
+<script>
+
+let currentStep = 1;
+const totalSteps = 9;
+
+function showStep(step){
+
+    document.querySelectorAll(".step-page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    const activePage = document.getElementById("step"+step);
+
+    if(activePage){
+        activePage.classList.add("active");
+    }
+
+    document.querySelectorAll(".circle").forEach((circle,index)=>{
+
+        if(index + 1 <= step){
+            circle.classList.add("active");
+        }else{
+            circle.classList.remove("active");
+        }
+
+    });
+
+}
+
+function loadSummary(){
+
+    document.getElementById("sumName").innerText =
+        document.getElementById("fullName").value;
+
+    document.getElementById("sumMobile").innerText =
+        document.getElementById("mobile").value;
+
+    document.getElementById("sumEvent").innerText =
+        document.getElementById("eventType").value;
+
+    document.getElementById("sumDate").innerText =
+        document.getElementById("eventDate").value;
+
+    document.getElementById("sumGuests").innerText =
+        document.getElementById("guests").value;
+
+    let packageName = "";
+
+    const selectedPackage =
+        document.querySelector('input[name="package"]:checked');
+
+    if(selectedPackage){
+        packageName = selectedPackage.value;
+    }
+
+    let addons = [];
+    let total = 0;
+
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(item=>{
+
+        addons.push(item.value);
+
+        total += Number(item.dataset.price || 0);
+
+    });
+
+    let packageText = packageName;
+
+    if(addons.length){
+        packageText += "<br><br><strong>Add-ons</strong><br>";
+        packageText += addons.join("<br>");
+    }
+
+    document.getElementById("sumPackage").innerHTML = packageText;
+    document.getElementById("totalAmount").innerHTML = "₹ " + total.toLocaleString();
+
+}
+
+function nextStep(){
+
+    if(currentStep < totalSteps){
+
+        currentStep++;
+
+        if(currentStep == 9){
+            loadSummary();
+        }
+
+        showStep(currentStep);
+
+    }
+
+}
+
+function previousStep(){
+
+    if(currentStep > 1){
+
+        currentStep--;
+
+        showStep(currentStep);
+
+    }
+
+}
+
+showStep(1);
+
+</script>
+
+</body>
+</html>
